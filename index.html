@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Selector</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: none;
+        }
+        .no-background {
+            background: url('imgs/hub-B.png') center center repeat;
+            background-size: 10em;
+        }
+        .navbar {
+            display: flex;
+            align-items: center;
+            background-color: #f76941;
+            padding: 10px;
+        }
+        .navbar img {
+            height: 40px;
+            margin-right: 20px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+        }
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .template-button {
+            margin: 5px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .template-code {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <img src="imgs/logo.png" alt="Logo">
+        <a href="https://www.isdntek.com/tagbot/webtagbot.htm" target="_blank">Web Tag Bot</a>
+        <button style="margin-right:5px;" onclick="copyText()">Copy Text</button>
+        <button onclick="toggleBackground()">Toggle Background</button>
+    </div>
+    <h1>What We Listing Today?</h1>
+    <div>
+        <button class="template-button" onclick="loadTemplate('blank-template.html')">Blank Template</button>
+        <button class="template-button" onclick="loadTemplate('RAM-template.html')">RAM Template</button>
+        <button class="template-button" onclick="loadTemplate('GPU-Template.html')">GPU Template</button>
+        <button class="template-button" onclick="loadTemplate('HDD-template.html')">HDD Template</button>
+        <button class="template-button" onclick="loadTemplate('motherboard-template.html')">Motherboard Template</button>
+        <button class="template-button" onclick="loadTemplate('laptop-template.html')">Laptop Template</button>
+        <button class="template-button" onclick="loadTemplate('desktop-template.html')">Desktop Template</button>
+        <button class="template-button" onclick="loadTemplate('monitor-template.html')">Monitor Template</button>
+        <button class="template-button" onclick="loadTemplate('tablet-template.html')">Tablet Template</button>
+        <button class="template-button" onclick="loadTemplate('macOS-template.html')">MacOS Template</button>
+    </div>
+    <textarea id="template-code" class="template-code" readonly></textarea>
+
+    <script>
+        function toggleBackground() {
+            document.body.classList.toggle('no-background');
+        }
+        function copyText() {
+            var textArea = document.getElementById("template-code");
+            textArea.select();
+            textArea.setSelectionRange(0, 99999); // For mobile devices
+            document.execCommand("copy");
+            alert("Text copied to clipboard!");
+        }
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
